@@ -53,10 +53,10 @@ def main():
     base_file_name = 'precos_deral_base.csv'
     path_file_base = os.path.join('bases', base_file_name)
     ultima_data_base = utils.get_ultima_data_disponivel_base(path_file_base)
-    print('última data base:', ultima_data_base)
+    # print('última data base:', ultima_data_base)
 
     # base inicial com dados desde 2010
-    start_date = ultima_data_base
+    # start_date = ultima_data_base
     #start_date = datetime.date(2010, 1, 1)
     end_date = datetime.date.today()
     dates_2010_2018 = [ start_date + datetime.timedelta(n) for n in range(int ((end_date - start_date).days))]
@@ -82,6 +82,12 @@ def main():
             rows.append(dados_site)
 
         for row in rows:
+            if row[3] is '':
+                continue
+
+            if row[3] is None:
+                continue
+
             data = {
                 'dt_referencia': row[0],
                 'no_produto': row[1],

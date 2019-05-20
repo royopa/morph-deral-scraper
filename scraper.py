@@ -8,12 +8,6 @@ import utils
 import scraperwiki
 
 
-# morph.io requires this db filename, but scraperwiki doesn't nicely
-# expose a way to alter this. So we'll fiddle our environment ourselves
-# before our pipeline modules load.
-os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
-
-
 def get_dados_from_page(data_referencia):
     url = 'http://celepar7.pr.gov.br/sima/cotdiat.asp'
     params = {
@@ -51,6 +45,11 @@ def extract_data(response, data_referencia, no_produto, tr_desc):
 
 
 def main():
+    # morph.io requires this db filename, but scraperwiki doesn't nicely
+    # expose a way to alter this. So we'll fiddle our environment ourselves
+    # before our pipeline modules load.
+    os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
+
     base_file_name = 'precos_deral_base.csv'
     path_file_base = os.path.join('bases', base_file_name)
     ultima_data_base = utils.get_ultima_data_disponivel_base(path_file_base)

@@ -5,6 +5,7 @@ import os
 import datetime
 from requests_html import HTMLSession
 import utils
+import scraperwiki
 
 
 def get_dados_from_page(data_referencia):
@@ -116,7 +117,6 @@ if __name__ == '__main__':
 # This is a template for a Python scraper on morph.io (https://morph.io)
 # including some code snippets below that you should find helpful
 
-# import scraperwiki
 # import lxml.html
 #
 # # Read in a page

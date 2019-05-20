@@ -8,6 +8,12 @@ import utils
 import scraperwiki
 
 
+# morph.io requires this db filename, but scraperwiki doesn't nicely
+# expose a way to alter this. So we'll fiddle our environment ourselves
+# before our pipeline modules load.
+os.environ['SCRAPERWIKI_DATABASE_NAME'] = 'sqlite:///data.sqlite'
+
+
 def get_dados_from_page(data_referencia):
     url = 'http://celepar7.pr.gov.br/sima/cotdiat.asp'
     params = {

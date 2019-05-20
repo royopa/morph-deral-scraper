@@ -57,7 +57,7 @@ def main():
 
     # base inicial com dados desde 2010
     # start_date = ultima_data_base
-    #start_date = datetime.date(2010, 1, 1)
+    start_date = datetime.date(2010, 1, 1)
     end_date = datetime.date.today()
     dates_2010_2018 = [ start_date + datetime.timedelta(n) for n in range(int ((end_date - start_date).days))]
 

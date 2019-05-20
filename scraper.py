@@ -83,6 +83,18 @@ def main():
             rows.append(dados_site)
 
         for row in rows:
+            data = {
+                'dt_referencia': row[0],
+                'no_produto': row[1],
+                'no_indicador': row[2],
+                'vr_real': row[3]
+            }
+            
+            scraperwiki.sqlite.save(
+                unique_keys=['dt_referencia', 'no_produto', 'no_indicador'],
+                data={"name": "susan", "occupation": "software developer"}
+            )
+            
             # faz o append no csv da base
             with open(path_file_base, 'a', newline='', encoding='utf8') as baseFile:            
                 fieldnames = ['dt_referencia', 'no_produto', 'no_indicador', 'vr_real']

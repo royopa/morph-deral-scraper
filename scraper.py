@@ -82,12 +82,6 @@ def main():
             rows.append(dados_site)
 
         for row in rows:
-            if row[3] is '':
-                continue
-
-            if row[3] is None:
-                continue
-
             data = {
                 'dt_referencia': row[0],
                 'no_produto': row[1],

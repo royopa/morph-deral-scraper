@@ -82,16 +82,19 @@ def main():
             rows.append(dados_site)
 
         for row in rows:
+            if row['no_indicador'] == '' or row['vr_real'] is None:
+                continue
+
             data = {
-                'dt_referencia': row[0],
-                'no_produto': row[1],
-                'no_indicador': row[2],
-                'vr_real': row[3]
+                'dt_referencia': row['dt_referencia'],
+                'no_produto': row['no_produto'],
+                'no_indicador': row['no_indicador'],
+                'vr_real': row['vr_real']
             }
             
             scraperwiki.sqlite.save(
                 unique_keys=['dt_referencia', 'no_produto', 'no_indicador'],
-                data={"name": "susan", "occupation": "software developer"}
+                data=data
             )
             
             # faz o append no csv da base

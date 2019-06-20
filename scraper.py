@@ -105,6 +105,10 @@ def main():
                 # print('Dado inserido no arquivo base:', path_file_base, row_inserted)
 
     print('Registros deral importados com sucesso')
+    
+    # rename file
+    os.rename('scraperwiki.sqlite', 'data.sqlite')
+    
     return True
 
 

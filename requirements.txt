@@ -4,3 +4,4 @@ requests-html
 bizdays
 beautifulsoup4
 scraperwiki
+pandas
